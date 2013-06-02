@@ -41,20 +41,42 @@ class AcoustID
         duration: duration[1]
         fingerprint: fp
 
-  @getFingerprintInfo: (fingerprint, duration,  done) ->
-    unless fingerprint and duration
+  @getFingerprintInfo: (options,  done) ->
+    unless options.fingerprint and options.duration
       done "fingerprint and duration required", null
       return
 
     request
-      uri: "http://api.acoustid.org/v2/lookup"
+      uri: "http://api.acoustid.org/v2/lookup?meta=recordings+releasegroups+compress"
       qs:
         client: @getClientId()
-        meta: "recordings+releasegroups+compress"
-        duration: duration
-        fingerprint: fingerprint
+        duration: options.duration
+        fingerprint: options.fingerprint
       , (error, response, body) =>
-        done error, body
+        done error, JSON.parse(body)
 
+  @getMBIDsFromFingerprintInfo: (info) ->
+    unless info?
+      return null
+
+    results = info.results
+    unless results and results.length
+      return null
+
+    recordings = results[0].recordings
+    unless recordings and recordings.length
+      return null
+
+    recording = recordings[0]
+
+    mbids =
+      song: recording.id
+
+    artists = recording.artists
+
+    if artists and artists.length
+      mbids.artist = artists[0].id
+
+    mbids
 
 module.exports = AcoustID

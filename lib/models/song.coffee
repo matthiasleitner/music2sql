@@ -15,7 +15,6 @@ module.exports = (sequelize, DataTypes) ->
     album_id: DataTypes.INTEGER
     album_title: DataTypes.STRING
     album_artist_name: DataTypes.STRING
-    acoust_response: DataTypes.TEXT
     acoustid_fingerprint: DataTypes.TEXT
     comments: DataTypes.STRING
     cover_url: DataTypes.STRING
@@ -33,6 +32,9 @@ module.exports = (sequelize, DataTypes) ->
     year: DataTypes.INTEGER
   ,
     instanceMethods:
+
+      # LASTFM
+      # ------------------------------------------------------
       # Generate lastfm fingerprint for the song
       # https://github.com/lastfm/Fingerprinter
       generateLastFMFingerprint: (done) ->
@@ -46,11 +48,8 @@ module.exports = (sequelize, DataTypes) ->
         LastFM.getFingerprintInfo @lastfm_fingerprint,
                                   done
 
-      getAcoustIDFingerprintInfo: (done) ->
-        AcoustID.getFingerprintInfo @acoustid_fingerprint,
-                                    @duration
-                                    done
-
+      # AcoustID
+      # ------------------------------------------------------
       # Generate AcoustID fingerpint for the song
       # http://musicbrainz.org/doc/AcoustID
       generateAcoustIDFingerprint: (done) ->
@@ -63,7 +62,12 @@ module.exports = (sequelize, DataTypes) ->
             @acoustid_fingerprint = data.fingerprint
 
             @save().success ->
-              done null, @acoustid_fingerprint
+              done null, data
+
+      getAcoustIDFingerprintInfo: (done) ->
+        AcoustID.getFingerprintInfo @acoustid_fingerprint,
+                                    @duration
+                                    done
 
       storeCover: (metadata, done = ->) ->
         artistName = Artist._nameFromMetadata(metadata)

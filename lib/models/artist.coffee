@@ -8,10 +8,8 @@ module.exports = (sequelize, DataTypes) ->
   sequelize.define "artist",
     name: DataTypes.STRING
     image_url: DataTypes.STRING
-    lastfm_result: DataTypes.TEXT
     lastfm_url: DataTypes.STRING
     mbid: DataTypes.STRING
-    mbrainz: DataTypes.TEXT
   ,
     instanceMethods:
       loadLastFMData: (done) ->

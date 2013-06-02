@@ -60,6 +60,21 @@ class LastFM
               options,
               done
 
+  @getMBIDsFromFingerprintInfo: (info) ->
+    if info? and info.tracks != "\n"
+      tracks = info.tracks.track
+      track = if tracks.length then tracks[0] else tracks
+
+      mbids =
+        song: track.mbid
+
+      artist = track.artist
+
+      if artist
+        mbids.artist = artist.mbid
+
+      mbids
+
   @_request: (method, options, done) ->
 
     options.method  = method
@@ -73,7 +88,7 @@ class LastFM
       qs:
         options
     , (error, response, body) =>
-      done error, body
+      done error, JSON.parse(body)
 
   @_apiHost: ->
     "http://ws.audioscrobbler.com/2.0"
