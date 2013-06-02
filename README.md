@@ -4,8 +4,10 @@ Node module for reading metadata from audio files and store it into a SQL databa
 
 ## Features
  - Load metadata from mp3, flac, mp4, ogg audio files
+ - Extract embeded album covers to image files
  - Fingerprint audio files using [AcoustID](http://musicbrainz.org/doc/AcoustID) or [LastFM](https://github.com/lastfm/Fingerprinter) fingerprinter
  - Resolve generated fingerprints to [MusicBrainz Identifier](http://musicbrainz.org/doc/MusicBrainz_Identifier) (MBID)
+ - Fetch artist, album or song information from lastfm and musicbrainz
 
 ## Usage
 
