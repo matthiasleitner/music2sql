@@ -14,11 +14,16 @@ Node module for reading metadata from audio files and store it into a SQL databa
 coffeeScript  = require 'coffee-script'
 Music2Sql     = require './lib/music2sql'
 
+# Initialize
 music = new Music2Sql
   lastFM_ApiKey: "<your key>"
   acoustID_ClientId: "<your client ID>"
 
+# Generate database
 
+music.setupDatabase()
+
+# Import
 importOptions =
   # path to import
   path: "/Users/Matthias/Music/"
