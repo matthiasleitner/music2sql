@@ -1,6 +1,23 @@
 {
   "name": "music2sql",
-  "version": "0.0.1",
+  "author": "Matthias Leitner (http://matthiasleitner.com)",
+  "description": "Module for reading metadata from audio files and storing it into a SQL database",
+  "homepage": "https://github.com/matthiasleitner/music2sql",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matthiasleitner/music2sql.git"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "version": "0.0.2",
+  "devDependencies": {
+    "coffee-script": "*"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "main": "lib/music2sql.js",
   "dependencies" :
   {
     "musicmetadata": "*",
@@ -9,5 +26,16 @@
     "xml2js"       : "*",
     "request"      : "*",
     "async"        : "*"
-  }
+  },
+  "keywords": [
+    "mysql",
+    "sql",
+    "coffee-script",
+    "music",
+    "id3",
+    "albumart",
+    "mbid",
+    "audio",
+    "library"
+  ]
 }
