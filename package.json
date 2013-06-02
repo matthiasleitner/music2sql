@@ -1,0 +1,13 @@
+{
+  "name": "music2sql",
+  "version": "0.0.1",
+  "dependencies" :
+  {
+    "musicmetadata": "*",
+    "sequelize"    : "*",
+    "coffee-script": "*",
+    "xml2js"       : "*",
+    "request"      : "*",
+    "async"        : "*"
+  }
+}

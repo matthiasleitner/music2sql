@@ -30,10 +30,8 @@ music.import importOptions, (error, songs) ->
     if song
       song.generateLastFMFingerprint (err, fingerprint) ->
         # ...
-      song.generateAcoustIDFingerprint  (err, fingerprint) ->
+      song.generateAcoustIDFingerprint (err, fingerprint) ->
         # ...
-
-
 ```
 
 ## Contributing
