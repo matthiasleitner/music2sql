@@ -20,7 +20,6 @@ music = new Music2Sql
   acoustID_ClientId: "<your client ID>"
 
 # Generate database
-
 music.setupDatabase()
 
 # Import
@@ -30,7 +29,7 @@ importOptions =
   # Array of strings - if matched with file path file gets excluded
   excludes: ["Musik/Misc"]
 
-music.import importOptions, (error, songs) ->
+music.import importOptions, (err, songs) ->
   songs.forEach (song) ->
     if song
       song.generateLastFMFingerprint (err, fingerprint) ->
@@ -38,6 +37,10 @@ music.import importOptions, (error, songs) ->
       song.generateAcoustIDFingerprint (err, fingerprint) ->
         # ...
 ```
+
+## Fingerprinting dependencies
+ - Chromaprint [fpcalc](http://acoustid.org/chromaprint)
+ - [LastFM](https://github.com/lastfm/Fingerprinter) fingerprinter
 
 ## Contributing
 
