@@ -14,7 +14,7 @@ Node module for reading metadata from audio files and stroing it into a SQL data
 ```coffeescript
 
 coffeeScript  = require 'coffee-script'
-Music2Sql     = require './lib/music2sql'
+Music2Sql     = require 'music2sql'
 
 # Initialize
 music = new Music2Sql

@@ -10,7 +10,7 @@
   "engines": {
     "node": ">=0.8.0"
   },
-  "version": "0.0.2",
+  "version": "0.0.1",
   "devDependencies": {
     "coffee-script": "*"
   },
@@ -21,6 +21,7 @@
   "dependencies" :
   {
     "musicmetadata": "*",
+    "mysql"        : "*",
     "sequelize"    : "*",
     "coffee-script": "*",
     "xml2js"       : "*",
