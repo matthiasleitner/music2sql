@@ -28,8 +28,8 @@ music.setupDatabase()
 importOptions =
   # path to import
   path: "/Users/Matthias/Music/"
-  # Array of strings - if matched with file path file gets excluded
-  excludes: ["Musik/Misc"]
+  # Array of strings - if matched with file path - file gets excluded from import
+  excludes: ["Music/Misc"]
 
 music.import importOptions, (err, songs) ->
   songs.forEach (song) ->
