@@ -1,6 +1,6 @@
 # Music2SQL
 
-Node module for reading metadata from audio files and stroing it into a SQL database.
+Node module for reading metadata from audio files and storing it into a SQL database.
 
 ## Features
  - Load metadata from mp3, flac, mp4, ogg audio files
